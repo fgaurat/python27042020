@@ -10,7 +10,7 @@ if __name__ == "__main__":
       if 'userId' in value:
          del value['userId']
       t = Todo(**value)
-      todos.append(t)
+      todos.append({"k":t.id,"todo":t})
    
 
 
