@@ -23,15 +23,13 @@ if __name__ == "__main__":
 
         for d in data_json:
             completed = 1 if d['completed'] == 'True' else 0
+            dueDate = int(d['dueDate']/1000)
+            
             sql = ("INSERT INTO `paris-form-1200` (`title`, `done`, `due_date`) " 
-                    "VALUES ('{}', '{}', '{}')".format(d['title'],completed,int(d['dueDate']/1000)) )
-            print(sql)
+                    "VALUES ('{}', '{}', '{}')".format(d['title'],completed,dueDate ) )
             cursor.execute(sql)
+
         cnx.commit()
-
-
-    # completed == 'True'?1:0
-
 
 
         query = "SELECT * FROM `paris-form-1200`"
